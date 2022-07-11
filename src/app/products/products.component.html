@@ -1,0 +1,31 @@
+
+<input type="number" [(ngModel)]="price">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Like</th>
+        <th>Quantity</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <div *ngFor="let p of listproducts, let i=index, let f=first, let l=last">
+    <tr *ngIf="p.price <= price" >
+        <td>{{i}} ** {{ p.id }}</td> <!--interpolation-->
+        <td>{{ p.title }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.like }}</td>
+        <td>{{ p.quantity }}</td>
+        <td><a [routerLink]="['product',p.id]">details</a></td>
+        <!---event binding-->
+        <td><button (click)="like(i)">Like</button></td>
+        <td><button [disabled]="!p.quantity" (click)="buy(p)">Buy</button>
+            <button [hidden]="p.quantity == 0" (click)="buy(p)">Buy2</button>
+            <button *ngIf="p.quantity > 0" (click)="buy(p)">Buy</button>
+        </td>
+    </tr>
+</div>
+</table>
+<a routerLink="test">test</a>
+<router-outlet></router-outlet>
