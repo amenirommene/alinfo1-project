@@ -27,9 +27,9 @@
     </tr>
 </div>
 </table>
-<form>
-    id: <input name="id"> <br>
-    title : <input name="id" required minlength="3"  ngModel #name="ngModel"> <br> <!---required:validateur-->
+<form ngForm #f="ngForm">
+    id: <input name="id" [(ngModel)]="product.id"> <br>
+    title : <input name="title" required minlength="3"  [(ngModel)]="product.title" #name="ngModel"> <br> <!---required:validateur-->
    <br> *****{{name.valid}}********<br> <!---invalid-->
    <br>*****{{name.touched}}********<br> <!---untouched-->
    <br>*****{{name.dirty}}********<br> <!---pristine--->
@@ -41,9 +41,22 @@
         Min 3 caractères 
     </div>
 </div> 
-    price: <input name="id"> <br>
-    quantity: <input name="id"> <br>
+    price: <input name="price" required [(ngModel)]="product.price" #p="ngModel">
+    <div *ngIf="p.invalid">
+        price obligatoire
+    </div> <br>
+    quantity: <input type="number" name="quantity" required pattern="[1-9][0-9]*" [(ngModel)]="product.quantity"> <br>
+    <button [disabled]="f.invalid" (click)="add()">Ajouter</button>
+    <div  *ngIf="f.invalid">
+        Form invalid
+    </div>
 </form>
-<button (click)="add()">Ajouter</button>
+
 <a routerLink="test">test</a>
 <router-outlet></router-outlet>
+<!----je suis dans le HTML du composant parent de detailProductComponent -->
+<div *ngFor="let p of listproducts, let i=index, let f=first, let l=last">
+<app-detail-product (notified)="notif($event)" [product]="p"></app-detail-product> <!---je suis le composant fils-->
+</div>
+
+<test></test>

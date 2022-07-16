@@ -31,9 +31,15 @@ export class ProductsComponent implements OnInit {
 }
 
 add(){
-    this.product.id=10;
+   /* this.product.id=10;
     this.product.title="produit statique";
-    this.product.price=9;
-    this.pservice.addProduct(this.product).subscribe();
+    this.product.price=9;*/
+    this.pservice.addProduct(this.product).subscribe(()=> this.pservice.getAllProductsFromServer().subscribe(res=>this.listproducts=res));
 }
+
+notif(p:Product){
+  console.log(p);
+}
+
+
 }
