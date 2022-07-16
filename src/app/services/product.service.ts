@@ -21,6 +21,12 @@ export class ProductService {
   getAllProductsFromServer():Observable<Product[]>{
    return this._http.get<Product[]>("http://localhost:3000/products");
   }
+  getProductById(id:number): Observable<Product>{
+    return this._http.get<Product>("http://localhost:3000/products/"+id);
+  }
+  addProduct(p:Product): Observable<Product>{
+    return this._http.post<Product>("http://localhost:3000/products",p);
+  }
 
   getDetails(){
     console.log("test ps");

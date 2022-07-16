@@ -22,9 +22,43 @@
     "name": "typicode"
   },
   "products": [
-    {"id": 1, "title": "T-shirt 18555", "price": 18, "quantity": 0, "like": 0},
-    {"id": 2, "title": "T-shirt 2", "price": 58, "quantity": 10, "like": 0},
-    {"id": 3, "title": "T-shirt 3", "price": 10, "quantity": 20, "like": 0},
-    {"id": 4, "title": "T-shirt 4", "price": 180, "quantity": 110, "like": 0}
+    {
+      "id": 1,
+      "title": "T-shirt 18555",
+      "price": 18,
+      "quantity": 0,
+      "like": 0
+    },
+    {
+      "id": 2,
+      "title": "T-shirt 2",
+      "price": 58,
+      "quantity": 10,
+      "like": 0
+    },
+    {
+      "id": 3,
+      "title": "T-shirt 3",
+      "price": 10,
+      "quantity": 20,
+      "like": 0
+    },
+    {
+      "id": 4,
+      "title": "T-shirt 4",
+      "price": 180,
+      "quantity": 110,
+      "like": 0
+    },
+    {
+      "id": 9,
+      "title": "produit statique",
+      "price": 9
+    },
+    {
+      "id": 10,
+      "title": "produit statique",
+      "price": 9
+    }
   ]
 }

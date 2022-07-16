@@ -9,6 +9,7 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
+  product : Product = new Product();
   title : string;
   listproducts: Product[];
   price : number = 0;
@@ -27,5 +28,12 @@ export class ProductsComponent implements OnInit {
   }
   buy(p:Product){
     p.quantity -=1;
+}
+
+add(){
+    this.product.id=10;
+    this.product.title="produit statique";
+    this.product.price=9;
+    this.pservice.addProduct(this.product).subscribe();
 }
 }

@@ -17,7 +17,7 @@
         <td>{{ p.price }}</td>
         <td>{{ p.like }}</td>
         <td>{{ p.quantity }}</td>
-        <td><a [routerLink]="['product',p.id]">details</a></td>
+        <td><a [routerLink]="['/product',p.id]">details</a></td>
         <!---event binding-->
         <td><button (click)="like(i)">Like</button></td>
         <td><button [disabled]="!p.quantity" (click)="buy(p)">Buy</button>
@@ -27,5 +27,23 @@
     </tr>
 </div>
 </table>
+<form>
+    id: <input name="id"> <br>
+    title : <input name="id" required minlength="3"  ngModel #name="ngModel"> <br> <!---required:validateur-->
+   <br> *****{{name.valid}}********<br> <!---invalid-->
+   <br>*****{{name.touched}}********<br> <!---untouched-->
+   <br>*****{{name.dirty}}********<br> <!---pristine--->
+   <div *ngIf="name.invalid && name.touched"> <!---name.errors && name.touched-->
+   <div *ngIf="name.errors.required">
+        Title obligatoire 
+    </div>
+    <div *ngIf="name.errors.minlength">
+        Min 3 caractères 
+    </div>
+</div> 
+    price: <input name="id"> <br>
+    quantity: <input name="id"> <br>
+</form>
+<button (click)="add()">Ajouter</button>
 <a routerLink="test">test</a>
 <router-outlet></router-outlet>
